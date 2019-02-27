@@ -21,3 +21,5 @@ SHOW_FILES             = YES
 SHOW_NAMESPACES        = YES
 INPUT_ENCODING         = UTF-8
 RECURSIVE              = YES
+FULL_PATH_NAMES        = NO
+STRIP_FROM_PATH        = @CMAKE_SOURCE_DIR@
