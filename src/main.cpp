@@ -12,15 +12,17 @@ int main(int argc, char ** argv) {
 
     crow::SimpleApp app;
 
-    CROW_ROUTE(app, "/")
-        .methods("POST"_method)
-        ([](const crow::request& req) {
-            auto body = req.body;
-            crow::response res;
-            res.add_header("Content-type", "image/png");
-            res.body = Core::Filter::gaussian(body);
-            return res;
-        });
+    auto route_filter_gaussian_callback =
+        [](const crow::request &req) {
+          auto body = req.body;
+          crow::response res;
+          res.add_header("Content-type", "image/png");
+          res.body = Core::Filter::gaussian(body);
+          return res;
+        };
+
+    CROW_ROUTE(app, "/filter/gaussian")
+        .methods("POST"_method)(route_filter_gaussian_callback);
 
     app.port(18080).run();
 

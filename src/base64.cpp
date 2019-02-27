@@ -2,12 +2,6 @@
 
 using namespace Helpers;
 
-/**
- * @brief Encode string to base64 string
- * 
- * @param std::string data 
- * @return std::string 
- */
 std::string
 Base64::Encode(const std::string &data) {
   static constexpr char sEncodingTable[] = {
@@ -47,13 +41,6 @@ Base64::Encode(const std::string &data) {
   return ret;
 }
 
-/**
- * @brief Decode base64 string
- *
- * @param std::string& input
- * @param std::string& out
- * @return std::string
- */
 std::string
 Base64::Decode(const std::string &input) {
   static constexpr unsigned char kDecodingTable[] = {
