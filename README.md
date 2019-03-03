@@ -13,7 +13,7 @@ use a compiled version of OpenCV 4.0.0 and requires following packages:
 
 ## How to build
 
-After building and install OpenCV 4.0.0, GCC, CMake and Boost::System you should do this commands:
+After building and install OpenCV 4.0.0, GCC, CMake and Boost::System, to build this application you should follow this steps:
 
 ```
 git clone https://github.com/arthurafarias/microservice-opencv-filter-gaussian
