@@ -16,8 +16,8 @@ users a compiled version of OpenCV 4.0.0 and requires following packages:
 After building and install OpenCV 4.0.0, GCC, Cmake and Boost::System you should do following commands
 
 ```
-git clone https://github.com/arthurafarias/microservice-opencv-filter-gausian
-cd microservice-opencv-filter-gausian
+git clone https://github.com/arthurafarias/microservice-opencv-filter-gaussian
+cd microservice-opencv-filter-gaussian
 git submodule update --init --recursive
 mkdir build
 cd build
