@@ -6,11 +6,20 @@
 
 #include <memory>
 
+crow::SimpleApp app;
+
+void signal_handler_DEFAULT(int signal) {
+  app.stop();
+  exit(0);
+}
+
 int main(int argc, char ** argv) {
 
     std::vector<std::string> arguments(argv + 1, argv + argc);
 
-    crow::SimpleApp app;
+    std::signal(SIGINT, signal_handler_DEFAULT);
+    std::signal(SIGTERM, signal_handler_DEFAULT);
+    std::signal(SIGKILL, signal_handler_DEFAULT);
 
     auto route_filter_gaussian_callback =
         [](const crow::request &req) {

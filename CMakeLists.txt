@@ -54,9 +54,9 @@ set(CROW_ROOT_DIR PATH "${PROJECT_SOURCE_DIR}/third-party/crow")
 find_package(Crow)
 if (CROW_FOUND)
     include_directories(${CROW_INCLUDES})
-else()
+else(CROW_FOUND)
     message(FATAL_ERROR "Crow not found. Could not build this app.")
-endif()
+endif(CROW_FOUND)
 
 find_package(Boost COMPONENTS system REQUIRED)
 
@@ -69,9 +69,9 @@ if (Boost_FOUND)
 
     target_link_libraries(ocv_microservice_crow ${Boost_SYSTEM_LIBRARIES})
 
-else()
+else(Boost_FOUND)
     message(FATAL_ERROR "Boost not found. Could not build this app.")
-endif()
+endif(Boost_FOUND)
 
 target_link_libraries( ocv_microservice_crow ${OpenCV_LIBS} pthread )
 
