@@ -8,3 +8,6 @@
 	url = https://github.com/ipkn/crow.git
 	branch = v0.1
 
+[submodule "third-party/pistache"]
+	path = third-party/pistache
+	url = https://github.com/oktal/pistache.git

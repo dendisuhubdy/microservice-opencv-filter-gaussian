@@ -36,9 +36,6 @@ endif()
 
 INCLUDE(Dart)
 
-add_custom_target(memcheck COMMAND ${CMAKE_CTEST_COMMAND}  --force-new-ctest-process --test-action memcheck)
-add_custom_target(coverage COMMAND ${CMAKE_CTEST_COMMAND}  --force-new-ctest-process --test-action coverage)
-
 find_package( OpenCV 4.0.0 REQUIRED )
 include_directories( ${PROJECT_SOURCE_DIR}/include )
 include_directories( ${OpenCV_INCLUDE_DIRS} )
@@ -49,14 +46,9 @@ file(GLOB ocv_microservice_crow_SOURCES
 
 add_executable( ocv_microservice_crow ${ocv_microservice_crow_SOURCES} )
 
-set(CROW_ROOT_DIR PATH "${PROJECT_SOURCE_DIR}/third-party/crow")
+ADD_SUBDIRECTORY(third-party/pistache)
+include_directories( third-party/pistache/include )
 
-find_package(Crow)
-if (CROW_FOUND)
-    include_directories(${CROW_INCLUDES})
-else(CROW_FOUND)
-    message(FATAL_ERROR "Crow not found. Could not build this app.")
-endif(CROW_FOUND)
 
 find_package(Boost COMPONENTS system REQUIRED)
 
@@ -73,7 +65,7 @@ else(Boost_FOUND)
     message(FATAL_ERROR "Boost not found. Could not build this app.")
 endif(Boost_FOUND)
 
-target_link_libraries( ocv_microservice_crow ${OpenCV_LIBS} pthread )
+target_link_libraries( ocv_microservice_crow ${OpenCV_LIBS} pthread pistache )
 
 if (BUILD_TESTS)
     find_package(GTest)
