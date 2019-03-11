@@ -2,18 +2,17 @@
 
 ## Introduction
 
-This is an example using [Crow](https://github.com/ipkn/crow) library  to serve an OpenCV image filter. This example
+This is an example using [Pistache](https://github.com/oktal/pistache) library  to serve an OpenCV image filter. This example
 use a compiled version of OpenCV 4.0.0 and requires following packages:
 
 - OpenCV 4.0.0
 - Crow Library v0.1
 - GCC with support to C++17
 - CMake 1.13
-- Boost::System
 
 ## How to build
 
-After building and install OpenCV 4.0.0, GCC, CMake and Boost::System, to build this application you should follow this steps:
+After building and install OpenCV 4.0.0, GCC and CMake, to build this application you should follow this steps:
 
 ```
 git clone https://github.com/arthurafarias/microservice-opencv-filter-gaussian
